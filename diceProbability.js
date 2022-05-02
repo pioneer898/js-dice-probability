@@ -24,7 +24,7 @@ async function runSimulation(args){
     myTimer.start();
     
     var controller = new diceProbabilityController(args);
-    console.log(`Beggining roll simulation. ${controller.rolls} rolls / ${controller.diceCount} dice / ${controller.diceSides} sides per die / ${controller.randomization} randomization`);
+    console.log(`Beginning roll simulation. ${controller.rolls} rolls / ${controller.diceCount} dice / ${controller.diceSides} sides per die / ${controller.randomization} randomization`);
     await controller.run();
     
     var resultDisplayArray = [];
