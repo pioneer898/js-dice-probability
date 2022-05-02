@@ -71,5 +71,11 @@ node diceProbability.js 10000 4 8 crypto
 # Completed in 0.168 seconds
 ```
 
+## Tests
+Testing using Jest
+```
+npm test
+```
+
 ## Credits
 This repo is being developed by [Pioneer898](https://github.com/pioneer898/)
