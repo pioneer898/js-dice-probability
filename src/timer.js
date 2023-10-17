@@ -3,18 +3,18 @@ class timer{
         this.steps = [];
     }
     start(){
-        var now = new Date();
+        let now = new Date();
         this.steps.push(now);
     }
     totalElapsed(){
-        var t = this;
-        var now = new Date();
+        const t = this;
+        let now = new Date();
         return now-t.steps[0];
     }
     step(){
-        var t = this;
-        var now = new Date();
-        var lastStep = t.steps[t.steps.length-1];
+        const t = this;
+        let now = new Date();
+        let lastStep = t.steps[t.steps.length-1];
         t.steps.push(now);
         return now-lastStep;
     }

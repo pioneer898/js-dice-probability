@@ -1,6 +1,6 @@
 class rollResult{
     constructor(providedProperties){
-        var defaultProperties = {
+        let defaultProperties = {
             value: null,
             numberOfRolls: 0,
             totalRolls: null
@@ -9,16 +9,16 @@ class rollResult{
         Object.assign(this,providedProperties);
     }
     increment(){
-        var t = this;
+        const t = this;
         t.numberOfRolls++;
     }
     percentageOfTotal(precision=2){
-        var t = this;
-        var rollRatio = t.numberOfRolls/t.totalRolls;
-        var rollPct = rollRatio*100;
-        var raisedToPrecision = rollPct * (Math.pow(10,precision));
-        var rounded = Math.round(raisedToPrecision);
-        var final = rounded / (Math.pow(10,precision));
+        const t = this;
+        let rollRatio = t.numberOfRolls/t.totalRolls;
+        let rollPct = rollRatio*100;
+        let raisedToPrecision = rollPct * (Math.pow(10,precision));
+        let rounded = Math.round(raisedToPrecision);
+        let final = rounded / (Math.pow(10,precision));
         return final;
     }
 }

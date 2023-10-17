@@ -3,7 +3,7 @@ const timer = require('./timer.js');
 const diceProbabilityController = require('./diceProbabilityController.js');
 
 
-var args = {};
+let args = {};
 if(typeof(process.argv[2]) !== 'undefined'){
     args.rolls = parseInt(process.argv[2]);
 }
@@ -20,14 +20,14 @@ if(typeof(process.argv[5]) !== 'undefined'){
 runSimulation(args);
 
 async function runSimulation(args){
-    var myTimer = new timer();
+    const myTimer = new timer();
     myTimer.start();
     
-    var controller = new diceProbabilityController(args);
+    const controller = new diceProbabilityController(args);
     console.log(`Beginning roll simulation. ${controller.rolls} rolls / ${controller.diceCount} dice / ${controller.diceSides} sides per die / ${controller.randomization} randomization`);
     await controller.run();
     
-    var resultDisplayArray = [];
+    let resultDisplayArray = [];
     controller.results.forEach((el,idx)=>{
         resultDisplayArray.push({
             Value: el.value,

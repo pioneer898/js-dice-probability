@@ -1,18 +1,18 @@
-const rollResult = require('../rollResult.js');
+const rollResult = require('../src/rollResult.js');
 
 test('Has no rolls',()=>{
-    var rr = new rollResult();
+    const rr = new rollResult();
     expect(rr.numberOfRolls).toBe(0);
 });
 
 test('Increments',()=>{
-    var rr = new rollResult();
+    const rr = new rollResult();
     rr.increment();
     expect(rr.numberOfRolls).toBe(1);
 });
 
 test('Calculates Percentage with Default Precision',()=>{
-    var rr = new rollResult({
+    const rr = new rollResult({
         totalRolls: 10000,
         numberOfRolls: 1234
     });
@@ -20,7 +20,7 @@ test('Calculates Percentage with Default Precision',()=>{
 });
 
 test('Calculates Percentage with Provided Precision',()=>{
-    var rr = new rollResult({
+    const rr = new rollResult({
         totalRolls: 1000000,
         numberOfRolls: 123456
     });
@@ -28,7 +28,7 @@ test('Calculates Percentage with Provided Precision',()=>{
 });
 
 test('Calculates Percentage with Precision 0',()=>{
-    var rr = new rollResult({
+    const rr = new rollResult({
         totalRolls: 1000000,
         numberOfRolls: 123456
     });

@@ -3,7 +3,7 @@ const rollResult = require('./rollResult.js');
 
 class diceProbabilityController{
     constructor(providedProperties){
-        var defaultProperties = {
+        let defaultProperties = {
             diceCount: 2,
             diceSides: 6,
             rolls: 1000,
@@ -14,8 +14,8 @@ class diceProbabilityController{
         Object.assign(this,defaultProperties);
         Object.assign(this,providedProperties);
 
-        var t = this;
-        for(var i=0;i<t.diceCount;i++){
+        const t = this;
+        for(let i=0;i<t.diceCount;i++){
             t.dice.push(new dice({
                 sides: t.diceSides
             }));
@@ -23,7 +23,7 @@ class diceProbabilityController{
         t.minResult = t.diceCount;
         t.maxResult = t.diceCount*t.diceSides;
         
-        for(var i=t.minResult;i<=t.maxResult;i++){
+        for(let i=t.minResult;i<=t.maxResult;i++){
             t.results.push(new rollResult({
                 value: i,
                 totalRolls: t.rolls
@@ -31,27 +31,28 @@ class diceProbabilityController{
         }
     }
     storeRollResult(value){
-        var t = this;
-        var rr = t.results.find(e => e.value === value);
+        const t = this;
+        let rr = t.results.find(e => e.value === value);
         rr.increment();
     }
     async simulateRoll(){
-        var t = this;
-        var rollTotal = 0;
-        for(var d=0;d<t.dice.length;d++){
+        const t = this;
+        let rollTotal = 0;
+        for(let d=0;d<t.dice.length;d++){
+            let rollValue;
             if(t.randomization === 'pseudo'){
-                var rollValue = t.dice[d].pseudoRoll();
+                rollValue = t.dice[d].pseudoRoll();
             } else {
-                var rollValue = await t.dice[d].cryptoRoll();
+                rollValue = await t.dice[d].cryptoRoll();
             }
             rollTotal += rollValue;
         }
         return rollTotal;
     }
     async run(){
-        var t = this;
-        for(var i=0;i<t.rolls;i++){
-            var rollTotal = await t.simulateRoll();
+        const t = this;
+        for(let i=0;i<t.rolls;i++){
+            let rollTotal = await t.simulateRoll();
             t.storeRollResult(rollTotal);
         }
     }
